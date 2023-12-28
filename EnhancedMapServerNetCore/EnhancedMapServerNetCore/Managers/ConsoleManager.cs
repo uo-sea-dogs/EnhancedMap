@@ -37,7 +37,10 @@ namespace EnhancedMapServerNetCore.Managers
 
         public static void Init()
         {
-            ThreadPool.QueueUserWorkItem(a => Read(Console.ReadLine()));
+            if (!Core.HeadLess)
+            {
+                ThreadPool.QueueUserWorkItem(a => Read(Console.ReadLine()));
+            }
         }
 
 
